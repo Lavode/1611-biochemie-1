@@ -1,0 +1,16 @@
+digraph G {
+	iso [label="Isomerie", shape="box"];
+	konstiso [label="Konstitutionsisomerie", shape="box"];
+	steiso [label="Stereoisomerie", shape="box"];
+	konfigiso [label="Konfigurationsisomerie", shape="box"];
+	konfiso [label="Konformationsisomerie", shape="box"];
+	enant[label="Enantiomere", shape="box"];
+	diast[label="Diastereomere", shape="box"];
+
+	iso -> konstiso
+	iso -> steiso [label="Gleiche Bndg (=Konstitution)"]
+	steiso -> konfiso [label = "Drehung um\nEinfachbindung"]
+	steiso -> konfigiso
+	konfigiso -> enant[label = "Bild/Spiegelbild"]
+	konfigiso -> diast
+}

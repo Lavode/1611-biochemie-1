@@ -1,0 +1,23 @@
+digraph G {
+	eq [label="Energiequelle"];
+	cq1 [label="Kohlenstoffquelle"];
+	cq2 [label="Kohlenstoffquelle"];
+
+	ct[label="Chemotroph", shape=box];
+	cat[label="Chemoautotroph\n(Sulfur-oxidating bacteria)", shape=box];
+	cht[label="Chemoheterotroph\n(Animals)", shape=box];
+
+	pt[label="Phototroph", shape=box];
+	pat[label="Photoautotroph\n(Plants)", shape=box];
+	pht[label="Photoheterotroph\n(Green nonsulfur bacteria)", shape=box];
+
+	eq -> ct [label="Chemisch"];
+	ct -> cq1;
+	cq1 -> cat[label="CO2"];
+	cq1 -> cht[label="Organic compounds"];
+
+	eq -> pt [label="Licht"]
+	pt -> cq2;
+	cq2 -> pat[label="CO2"];
+	cq2 -> pht[label="Organic compounds"];
+}
