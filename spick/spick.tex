@@ -1,4 +1,4 @@
-\documentclass[a4paper,twocolumn,english,fontsize=7,DIV=16]{scrartcl}
+\documentclass[a4paper,twocolumn,usegeometry,english,fontsize=6,DIV=16]{scrartcl}
 
 % Localization options
 \usepackage[english]{babel}
@@ -13,6 +13,32 @@
 % PDF-compatible landscape mode.
 % Makes PDF viewers show the page rotated by 90°.
 \usepackage{pdflscape}
+
+% Houston, we need to save space.
+
+\usepackage[bottom=2cm,top=2cm]{geometry}
+
+% No vertical space inbetween lists.
+\usepackage{enumitem}
+\setlist{nosep}
+
+% Remove space between paragraphs.
+\setlength{\parskip}{0pt}
+\setlength{\parsep}{0pt}
+\setlength{\headsep}{0pt}
+\setlength{\topskip}{0pt}
+\setlength{\topmargin}{0pt}
+\setlength{\topsep}{0pt}
+\setlength{\partopsep}{0pt}
+
+% Lower space between lines.
+% \linespread{0.8}
+
+% Get rid of space above and below section headings
+\usepackage[compact]{titlesec}
+\titlespacing{\section}{0pt}{*0}{*0}
+\titlespacing{\subsection}{0pt}{*0}{*0}
+\titlespacing{\subsubsection}{0pt}{*0}{*0}
 
 % Advanced tables
 \usepackage{tabu}
@@ -32,9 +58,6 @@
 % Float barriers.
 % Automatically add a FloatBarrier to each \section
 % \usepackage[section]{placeins}
-
-% Custom header and footer
-\usepackage{fancyhdr}
 
 \usepackage{layout}
 
@@ -59,12 +82,6 @@
 \usepackage{wrapfig}
 
 \DeclarePairedDelimiter\abs{\lvert}{\rvert}
-
-\pagestyle{plain}
-% \fancyhf{}
-% \lhead{}
-% \lfoot{}
-% \rfoot{}
 % 
 % Source code & highlighting
 \usepackage{listings}
@@ -76,6 +93,11 @@
 
 % Should use this command wherever the print date is mentioned.
 \newcommand{\printdate}{\today}
+
+% Empty header/footer
+\pagestyle{empty}
+% Disable header/footer on title page too
+\renewcommand*{\titlepagestyle}{empty}
 
 \subject{1611 - Biochemie 1}
 
@@ -89,10 +111,12 @@
 % another. 
 \usepackage{hyperref}
 
-
 \begin{document}
-\maketitle
-
+% Space, we need space
+% \maketitle
+% \vspace*{-20pt}
+% \enlargethispage{40pt}
+ 
 \section{Moleküle des Lebens}
 
 \begin{description}
@@ -113,27 +137,26 @@
 	\item[RNA Welt] DNA hat keine katalytische Aktivität und komplexe
 		Replikation, also Entstehen des Lebens aus RNA Enzymen (zb
 		Ribosom).
+	\item[Bakterienzellen] Pili: Adhesion to other cells, Nucleoid: Long
+		circular DNA molecule, Cell envelope: encompasses cell,
+		Cytoplasma: \SIrange{300}{500}{\milli\Molar} proteins,
+		Flagella: Movement
+	\item[Gram-positiv/negativ] Bezeichnet ob Zelle einfärbbar mit
+		Gention-Violett. Negative Organismen haben äussere Membran und
+		Peptidoglycan-Schicht, Positive keine äussere Membran dafür
+		eine dickere Peptidoglycanschicht.
+	\item[Archaen] Archaen (!= Bakterien) haben keine äussere Membran, und
+		eine Pseudopeptidoglycanschicht. Ether statt Ester in Zellwand
+		für Kopfgruppe-Glycerol Verbindung. Stabiler gegen Hydrolyse.
+		Verzweigte Phytonyl-Gruppen machen Membran rigide und
+		undurchdringbar für zB Salze.
 \end{description}
-
-\subsection{Energie \& Kohlenstoffquellen}
 
 \begin{figure}
 	\centering
-	\includegraphics[width=\linewidth]{graphs/ec_quellen.png}
+	\includegraphics[width=0.6\linewidth]{graphs/ec_quellen.png}
 	\caption{Classification based on carbon and energy source}
 \end{figure}
-
-\subsection{Bakterienzellen}
-
-\begin{description}
-	\item[Pili] Adhesion to other cells
-	\item[Nucleoid] Long circular DNA molecule
-	\item[Cell envelope] encompasses cell
-	\item[Cytoplasma] \SIrange{300}{500}{\milli\Molar} proteins
-	\item[Flagella] Movement
-\end{description}
-
-\subsubsection{Komponenten}
 
 \begin{tabu}{lll}
 	\toprule
@@ -148,34 +171,13 @@
 	\bottomrule
 \end{tabu}
 
-\subsubsection{Gram-positiv / negativ}
-
-Bezeichnet ob Zelle einfärbbar mit Gention-Violett. Negative Organismen haben
-äussere Membran und Peptidoglycan-Schicht, Positive keine äussere Membran dafür
-eine dickere Peptidoglycanschicht.
-
-\subsubsection{Archaen}
-
-Archaen (!= Bakterien) haben keine äussere Membran, und eine
-Pseudopeptidoglycanschicht. Ether statt Ester in Zellwand für
-Kopfgruppe-Glycerol Verbindung. Stabiler gegen Hydrolyse. Verzweigte
-Phytonyl-Gruppen machen Membran rigide und undurchdringbar für zB Salze.
-
-\subsubsection{Funktionelle Gruppen}
-
 \begin{figure}
 	\centering
-	\includegraphics[width=\linewidth]{img/funktionale_gruppen.png}
+	\includegraphics[width=0.8\linewidth]{img/funktionale_gruppen.png}
 	\caption{Funktionelle Gruppen}
 \end{figure}
 
-\subsubsection{Isomerie}
-
-\begin{figure}
-	\centering
-	\includegraphics[width=\linewidth]{graphs/isomerie.png}
-	\caption{Isomerie}
-\end{figure}
+\section{Isomerie}
 
 \begin{description}
 	\item[Enantiomere] Gleiche physikalische \& chemische Eigenschaften
@@ -210,26 +212,38 @@ $\Delta G = \Delta H - T \Delta S$, $\Delta H$ = Enthalpie
 		Cytochrom F: Elektronentransport (Proton Hopping)
 	\item[Gleichgewichtskonstante] $A \Rightarrow B + C$, $K_{eq} =
 		\frac{[B] \cdot [C]}{[A]}$
+	\item[Schwache Säuren]  $p_{ka}$: PH bei dem \SI{50}{\percent}
+		dissoziert. Henderson-Hasselbalch: $\text{pH} = p_{ka} +
+		\log\left(\frac{[A-]}{[HA]}\right)$. Puffer am effektivsten bei
+		$\text{pH} = p_{ka} \pm 1$.
 \end{description}
-
-\subsection{Schwache Säuren}
-
-$p_{ka}$: PH bei dem \SI{50}{\percent} dissoziert. Henderson-Hasselbalch:
-$\text{pH} = p_{ka} + \log\left(\frac{[A-]}{[HA]}\right)$. Puffer am effektivsten bei
-$\text{pH} = p_{ka} \pm 1$.
 
 \section{Aminosäuren / Peptide}
 
 \begin{figure}
 	\centering
-	\includegraphics[width=\linewidth]{img/as.png}
-	\caption{Allgemeine Struktur}
+	\begin{subfigure}{.5\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{graphs/isomerie.png}
+		\caption{Isomerie}
+	\end{subfigure}%
+	\begin{subfigure}{.4\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{img/as.png}
+		\caption{Allgemeine Struktur AS}
+	\end{subfigure}%
 \end{figure}
 
 \begin{figure}
 	\centering
-	\includegraphics[width=\linewidth]{img/as_liste.png}
+	\includegraphics[width=0.8\linewidth]{img/as_liste.png}
 	\caption{Liste der AS}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.8\linewidth]{img/as_struktur.png}
+	\caption{AS Struktur}
 \end{figure}
 
 \begin{description}
@@ -270,12 +284,6 @@ $\text{pH} = p_{ka} \pm 1$.
 		wegen gemeinsamen Vorfahren, Paralog: Homolog wegen
 		Genduplikation innerhalb Genom.
 \end{description}
-
-\begin{figure}
-	\centering
-	\includegraphics[width=\linewidth]{img/peptid_kond.png}
-	\caption{Peptid Kondensation}
-\end{figure}
 
 \section{Proteinstruktur}
 
@@ -378,15 +386,25 @@ Hydrophobe Wechselwirkungen essentiell für erste Schritte.
 
 \begin{figure}
 	\centering
-	\includegraphics[width=\linewidth]{img/michaelis.png}
+	\includegraphics[width=0.8\linewidth]{img/michaelis.png}
 	\caption{Michaelis-Menten Gleichung}
 \end{figure}
 
 \begin{figure}
 	\centering
-	\includegraphics[width=\linewidth]{img/lb.png}
-	\caption{Lineweaver-Burke Plot}
+	\begin{subfigure}{.4\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{img/lb.png}
+		\caption{Lineweaver-Burke Plot}
+	\end{subfigure}%
+	\begin{subfigure}{.6\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{img/peptid_kond.png}
+		\caption{Peptid Kondensation}
+	\end{subfigure}%
 \end{figure}
+
+
 
 \subsection{Inhibition}
 
@@ -444,12 +462,6 @@ Hydrophobe Wechselwirkungen essentiell für erste Schritte.
 
 \begin{figure}
 	\centering
-	\includegraphics[width=\linewidth]{img/glucose.png}
-	\caption{Glucose}
-\end{figure}
-
-\begin{figure}
-	\centering
 	\includegraphics[width=\linewidth]{img/polysaccharide.png}
 	\caption{Polysaccharide}
 \end{figure}
@@ -504,26 +516,30 @@ Hydrophobe Wechselwirkungen essentiell für erste Schritte.
 
 \begin{figure}
 	\centering
-	\includegraphics[width=\linewidth]{img/nukleotid.png}
-	\caption{Nukleotid}
+	\begin{subfigure}{.5\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{img/nukleoside.png}
+		\caption{Nukleoside}
+	\end{subfigure}%
+	\begin{subfigure}{.5\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{img/polynukleotide.png}
+		\caption{Polynukleotide}
+	\end{subfigure}%
 \end{figure}
 
 \begin{figure}
 	\centering
-	\includegraphics[width=\linewidth]{img/nukleoside.png}
-	\caption{Nukleoside}
-\end{figure}
-
-\begin{figure}
-	\centering
-	\includegraphics[width=\linewidth]{img/polynukleotide.png}
-	\caption{Polynukleotide}
-\end{figure}
-
-\begin{figure}
-	\centering
-	\includegraphics[width=\linewidth]{img/dna_replikation.png}
-	\caption{DNA Replikation}
+	\begin{subfigure}{.4\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{img/nukleotid.png}
+		\caption{Nukleotid}
+	\end{subfigure}%
+	\begin{subfigure}{.6\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{img/dna_replikation.png}
+		\caption{DNA Replikation}
+	\end{subfigure}%
 \end{figure}
 
 \section{Gene \& Genome}
@@ -532,9 +548,9 @@ Hydrophobe Wechselwirkungen essentiell für erste Schritte.
 	\item[Gen] DNA-Sequenz die Informationen (AS \& zb regulierende ncrf)
 		codiert.
 	\item[Genom] Summe aller vererbaren Informationen in Form von DNA/RNA.
-	\item[Splicing] Ausschneiden der Introns, oder Exon-skipping, mutually
-		exclusive exons, exons in eine oder andere Richtung
-		ausgeschnitten, beibehalten der Introns, ...
+	\item[Splicing] Ausschneiden der Introns, oder Exon-skipping, Mutually
+		exclusive exons, Exons in eine oder andere Richtung
+		ausgeschnitten, Beibehalten der Introns, ...
 	\item[Bakterien] E. Coli haploid und circulär, aber nicht
 		allgemeingültig. Bakterien kompaktes Genom (\SI{90}{\percent}
 		protein-codierend, verglichen mit \SI{10}{\percent} beim
@@ -588,25 +604,25 @@ Hydrophobe Wechselwirkungen essentiell für erste Schritte.
 
 \begin{figure}
 	\centering
-	\includegraphics[width=\linewidth]{img/lipid_klassifikation.png}
+	\includegraphics[width=0.8\linewidth]{img/lipid_klassifikation.png}
 	\caption{Klassifikation von Struktur- und Membranlipiden}
 \end{figure}
 
 \begin{figure}
 	\centering
-	\includegraphics[width=\linewidth]{img/glycerophospholipide.png}
+	\includegraphics[width=0.8\linewidth]{img/glycerophospholipide.png}
 	\caption{Struktur von Glycerophospholipiden}
 \end{figure}
 
 \begin{figure}
 	\centering
-	\includegraphics[width=\linewidth]{img/tetraether.png}
+	\includegraphics[width=0.8\linewidth]{img/tetraether.png}
 	\caption{Tetraether der Archaeen}
 \end{figure}
 
 \begin{figure}
 	\centering
-	\includegraphics[width=\linewidth]{img/membranlipide.png}
+	\includegraphics[width=0.8\linewidth]{img/membranlipide.png}
 	\caption{Kopfgruppen der Membranlipide}
 \end{figure}
 
@@ -643,18 +659,42 @@ Hydrophobe Wechselwirkungen essentiell für erste Schritte.
 		durch Kopplung an exergonen Prozess (zB ATP Hydrolyse)
 	\item[Rezeptoren] Kleine Ionen, organische Moleküle, Peptide, ... als
 		Liganden.
+	\item[Membranpotential] \SIrange{-50}{-70}{\mV} Durch Austausch von
+		jeweils 3 \ce{Na+} (raus) gegen 2 \ce{K+} (rein) durch ATPase.
+		Depolarisation durch Öffnen der \ce{Na+} oder \ce{Ca2+} Kanäle.
+		Hyperpolarisation durch öffnen der \ce{K+} Kanäle.
 \end{description}
 
 \begin{figure}
 	\centering
-	\includegraphics[width=\linewidth]{img/hydropathie.png}
+	\includegraphics[width=0.8\linewidth]{img/hydropathie.png}
 	\caption{Hydropathie-Diagramm für Aufspürung alpha-helikaler Transmembranbereiche}
 \end{figure}
 
 \begin{figure}
 	\centering
 	\includegraphics[width=\linewidth]{img/signaltransfer.png}
-	\caption{Signaltransfer}
+	\caption{Rezeptorarten}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.8\linewidth]{img/signalweiterleitung.png}
+	\caption{Signalweiterleitung}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\begin{subfigure}{.5\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{img/glucose.png}
+		\caption{Glucose}
+	\end{subfigure}%
+	\begin{subfigure}{.5\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{img/signalweiterleitung2.png}
+		\caption{Signalweiterleitung 2}
+	\end{subfigure}%
 \end{figure}
 
 \end{document}
