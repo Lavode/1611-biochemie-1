@@ -31,7 +31,7 @@
 
 % Float barriers.
 % Automatically add a FloatBarrier to each \section
-\usepackage[section]{placeins}
+% \usepackage[section]{placeins}
 
 % Custom header and footer
 \usepackage{fancyhdr}
@@ -117,7 +117,7 @@
 
 \subsection{Energie \& Kohlenstoffquellen}
 
-\begin{figure}[h]
+\begin{figure}
 	\centering
 	\includegraphics[width=\linewidth]{graphs/ec_quellen.png}
 	\caption{Classification based on carbon and energy source}
@@ -163,7 +163,7 @@ Phytonyl-Gruppen machen Membran rigide und undurchdringbar für zB Salze.
 
 \subsubsection{Funktionelle Gruppen}
 
-\begin{figure}[h]
+\begin{figure}
 	\centering
 	\includegraphics[width=\linewidth]{img/funktionale_gruppen.png}
 	\caption{Funktionelle Gruppen}
@@ -171,7 +171,7 @@ Phytonyl-Gruppen machen Membran rigide und undurchdringbar für zB Salze.
 
 \subsubsection{Isomerie}
 
-\begin{figure}[h]
+\begin{figure}
 	\centering
 	\includegraphics[width=\linewidth]{graphs/isomerie.png}
 	\caption{Isomerie}
@@ -373,6 +373,7 @@ Hydrophobe Wechselwirkungen essentiell für erste Schritte.
 		einer Reaktion.
 	\item[Übergangszustände / T-State] Bei A -> B, Zwischenzustand zwischen
 		A und B, sehr kurzlebig.
+	\item[Wechselzahl] $k_{cat} = \frac{V_{max}}{[E]}$
 \end{description}
 
 \begin{figure}
@@ -394,9 +395,13 @@ Hydrophobe Wechselwirkungen essentiell für erste Schritte.
 		Toxisch. zB Ricin.
 	\item[Reversibel] Bindet und dissoziiert rasch an und von Enzym. zB
 		strukturelle Analogen zu Substrat, bindet an freies Enzym, oder
-		E-S Komplexe. Kompetitiv: Bindet an gleiche Stelle wie
-		Substrat. $V_{max}$ bleibt gleich, Steigung in LB Plot steigt
-		mit Inhibitor-Konzentration. Nicht-kompetitiv: $V_max$ und
+		E-S Komplexe.
+	\item[Kompetitiv] Bindet an gleiche Stelle wie Substrat. $V_{max}$
+		bleibt gleich, $K_m$ sinkt. Steigung in LB Plot steigt mit
+		Inhibitor-Konzentration.
+	\item[Nicht-kompetitiv] Inhibitor verhindert Bindung Substrant an
+		Enzym. $V_{max}$ verändert sicht, $K_m$ nicht.
+	\item[Unkompetitiv] Inhibitor reagiert mit ES Komplex. $V_{max}$ und
 		$K_m$ verändern sich.
 \end{description}
 
@@ -405,12 +410,21 @@ Hydrophobe Wechselwirkungen essentiell für erste Schritte.
 \begin{description}
 	\item[Kohlenhydrate] Meist \ce{C_n(H2O)_n}. Energiequelle \& Speicher,
 		Strukturelle Komponente, Informations-Molekül.
+	\item[Furanose / Pyranose] Furanose: Kohlenhydrat mit 5-fach Ring (4C, 1O).
+		Pyranose: 6-fach Ring (5C, 1O).
 	\item[Epimere] Diastereomere die sich bei 1 C-Atom unterscheiden.
+	\item[Anomer] Epimer eines zyklischen Zuckers an anomeren Kohlenstoff
+		(Träger der Carbonylgruppe). $\alpha$ falls Anomerer
+		Kohlenstoff und Referenz-Kohlenstoff (am weitesten von anomerem
+		entferntes Chiralitätszentrum) gleiche R/S, $\beta$ falls
+		unterschiedlich.
+	\item[Reduzierender Kohlenstoff] Freier anomeres Kohlenstoff Atom das
+		Oxidation eingehen kann.
 	\item[Halbacetale / Halbketale] Ringstruktur ab 5 C-Atomen, Alkohol zu
 		Aldehyd/Keton Ringschluss. Acetale/Ketale sobald resultierender
 		Alkohol weiteren Ringschluss eingeht. Gleichgewicht zwischen
 		Ketten- und Ring-Form der Zucker. Aldehyde in Ketten sind
-		reduktiv, erlaubt Detektion.
+		reduktiv, wie auch alle Monosaccharide, erlaubt Detektion.
 	\item[Glykosidische Bindung] Bindung zwischen Disacchariden via 2
 		Hydroxygruppen, Abgang Wasser.
 	\item[Nomenklatur] $C_1$ = neben O, trägt Alkohol.
@@ -443,22 +457,26 @@ Hydrophobe Wechselwirkungen essentiell für erste Schritte.
 \section{Nukleotide \& Nukleinsäuren}
 
 \begin{description}
-	\item[Nukleotide] Nukleobase + Pentose + Phosphat, Metabolismus (ATP, ADP), Cofaktoren (NAD+), Signalisierung (cAMP)
+	\item[Nukleotide] Nukleobase + Pentose + Phosphat, Metabolismus (ATP,
+		ADP), Cofaktoren (NAD+), Signalisierung (cAMP). Zwei Nukleotide
+		in DNA: Basenpaar.
 	\item[Nukleinsäuren] Genetische Informationen (DNA, RNA), Katalyse (Ribosome), Synthese (tRNA)
 	\item[Phosphat-Gruppe] Bei neutralem pH negativ. Bei Nukleinsären an 5'
 		Ende der Pentose. Mono-, Di-, Triphosphat je nach Anzahl
 		Phosphat-Gruppen.
 	\item[Pentose in Nukleotiden] $\beta$-D in RNA, $\beta$-2'-deoxy-D
 		ribofuranose in DNA.
-	\item[Nukleobasen] Derivate von Pyrmidin (Cytosin, Thymin, Uracil) oder
-		Purin (Adenin, Guanin), absorbieren bei
+	\item[Nukleobasen] Derivate von Pyrmidin (Cytosin, Thymin, Uracil
+		(Ersatz für Thymin in RNA)) oder Purin (Adenin, Guanin),
+		absorbieren bei
 		\SIrange{250}{270}{\nm}.
 	\item[$\beta$-N-glycosidische Bindung] Verbindet Nukleobase mit
 		Pentose, stabil gegen Hydrolyse, frei rotierbar.
 	\item[Polynukleotide] Phosphodiester Bindung, negatives Rückgrat,
 		stabil bei DNA, instabil bei RNA. 5' vs 3' Ende. Abbau bei RNA
 		basenkatalisiert, Base deprotoniert Alkohol bei C2, \ce{O-}
-		greift \ce{P} an, löst Phosphodiesterbindung.
+		greift \ce{P} an, löst Phosphodiesterbindung. Resultiert in PO3
+		an zwei O des Ringes gebunden.
 	\item[siRNA] führt zur gezielten Zerschneidung gewisser mRNA,
 		Abwehrmechanismus.
 	\item[A-Form (RNA)] \SI{2.8}{\angstrom} pro Nukleotid, 11.5 Basen je
@@ -480,6 +498,8 @@ Hydrophobe Wechselwirkungen essentiell für erste Schritte.
 	\item[Nucleotide excision repair] Falls durch UV Licht Bindung zwischen
 		zwei benachbarten Basen (Dimer), Ausschnitt des ganzen Bereichs
 		und Replikation.
+	\item[5' 3'] 5' C verbunden mit Phosphatgruppe (ausserhalb Ring), 3' C
+		trägt OH. Replikation 5->3.
 \end{description}
 
 \begin{figure}
@@ -504,6 +524,137 @@ Hydrophobe Wechselwirkungen essentiell für erste Schritte.
 	\centering
 	\includegraphics[width=\linewidth]{img/dna_replikation.png}
 	\caption{DNA Replikation}
+\end{figure}
+
+\section{Gene \& Genome}
+
+\begin{description}
+	\item[Gen] DNA-Sequenz die Informationen (AS \& zb regulierende ncrf)
+		codiert.
+	\item[Genom] Summe aller vererbaren Informationen in Form von DNA/RNA.
+	\item[Splicing] Ausschneiden der Introns, oder Exon-skipping, mutually
+		exclusive exons, exons in eine oder andere Richtung
+		ausgeschnitten, beibehalten der Introns, ...
+	\item[Bakterien] E. Coli haploid und circulär, aber nicht
+		allgemeingültig. Bakterien kompaktes Genom (\SI{90}{\percent}
+		protein-codierend, verglichen mit \SI{10}{\percent} beim
+		Menschen). Damit lineare Beziehung der Genomgrösse und Anzahl
+		codierter Proteine.
+	\item[Operon] Cluster von Genen die durch ein Promoter reguliert.
+		Charakteristisch für Prokaryonten, zB Lactose Operon.
+	\item[Plasmide] Oft circulär, enthält Gene die nicht essentiell für
+		Leben sind. Austausch zwecks Resistenzen etc.
+	\item[Humanes genom] 3.2 Gbp nukleär, 16.5 kbp mitochondriell.
+		Codierende Gene, Introns dazwischen, intergenic DNA zwischen
+		Genen (potentiell regulierende Effekte), gen-weite repeats.
+	\item[Komplexität] Komplexe und einfache Organismen haben annähernd
+		gleiche Anzahl proteincodierende Gene. 3 Gbp non-coding DNA, da
+		über Evolution beibehalten, muss Rolle für Komplexität spielen.
+	\item[NCS] Readaout analog Sanger, aber Replikation nicht in Zellen,
+		sondern via spezielle PCR immobilisiert auf Array. Viel mehr
+		parallel, günstiger.
+\end{description}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=\linewidth]{img/gen_aufbau.png}
+	\caption{Struktur eines Gens}
+\end{figure}
+
+\section{Lipide}
+
+\begin{description}
+	\item[Fettsäuren] Gesättigt vs ungesättigte organische Moleküle mit
+		Carbonsäure. Meist gerade Anzahl C Atome. C1 jenes mit
+		Carboxylgruppe. Bei neutralem pH deprotoniert. Ungesättigte
+		meistens in cis-Konformation, Knick.
+	\item[Nomenklatur Fettsäuren] $x:y(\Delta^{a_1, ..., a_n})$. $x$ Anzahl
+		C Atome, $y$ Anzahl Doppelbindungen, $a_1, ..., a_n$ Position
+		der Doppelbindungen. n-Präfix impliziert normale unverzweigte
+		Struktur.
+	\item[Triacylglycerol] Drei Fettsäure, verbunden via Ester-Bindung an
+		Glycerol. Falls andere Substituenten, dann allgemein
+		Glycerolipide. Primäre Speicherform von Lipiden.
+	\item[Lipide] Energiespeicher, Isolierung vor Umwelt (Temperatur),
+		Wasser-abweisend, Auftrieb, Membranbestandteil, Cofaktor,
+		Pigmente.
+	\item[Glycerophospholipide] Hauptbestandteil der Membran, zwei FS ein
+		Phosphat via Glycerol verbunden.
+	\item[Sterole] Cholesterol etc. Cholesterin ist apolar, modulieren
+		Fluidität und Permeabilität der Plasmamembran. Basis für
+		Hormone. Verändert nicht $T_m$, sondern verbreitert
+		Übergangsbereich.
+\end{description}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=\linewidth]{img/lipid_klassifikation.png}
+	\caption{Klassifikation von Struktur- und Membranlipiden}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=\linewidth]{img/glycerophospholipide.png}
+	\caption{Struktur von Glycerophospholipiden}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=\linewidth]{img/tetraether.png}
+	\caption{Tetraether der Archaeen}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=\linewidth]{img/membranlipide.png}
+	\caption{Kopfgruppen der Membranlipide}
+\end{figure}
+
+\section{Membrane}
+
+\begin{description}
+	\item[Membrane] Lipiden und Proteine, viele glykosiliert. Grenzen
+		Zellen und Organelle ab. Selektiver Import und Export. Proteine
+		fungieren als Rezeptoren, Enzyme, Kanäle. \SIrange{3}{10}{\nm},
+		asymmetrisch.
+	\item[Membranproteine] Periphere: Nicht-kovalent gebunden, pH etc
+		beinflusst Bindung. Integrale: In Kontakt mit Innenseite, nicht
+		lösbar, Lösung nur mittels Detergenzien.
+	\item[Transmembranproteine] 20-25 hydrophobe AS, oft alpha-Helix,
+		durchdringen Membran.
+	\item[Membran-Zusammensetzung] Verhältnis und Art der Proteine variiert
+		zwischen unterschiedlichen Zellen. zB Viel Cholesterin in
+		Zellmembran, fast keines in Mitochondrien.
+	\item[Sterole, Hopane] Erhöhen Rigidität \& Permeabilität der Membran.
+	\item[Gel / fluid Phase] Gel: Einzelne Moleküle bewegen sich nicht
+		mehr, fluid: Einzelne bewegen sich. Erhitzen von Gel zu Fluid.
+		Unter physiologischen Bedingungen eher fluid.
+	\item[Diffusion] Sehr schnell lateral, (\SI{1}{\um \per \s}), langsam
+		transversal (Halbwertszeit in Tagen) wegen Polaritäten.
+		Katalysiert durch Flippasen. Erlaubt zB einfügen neuer Lipide
+		innen, und Transport nach aussen.
+	\item[Transportsysteme] Uniport: Ein Stoff in eine Richtung, Symport:
+		Zwei Stoffe in gleiche Richtung, Antiport: Zwei Stoffe in
+		gegenläufige Richtung.
+	\item[Passiver Transport] Polare Moleküle müssen zuerst Wasserhülle
+		abgeben, energetisch ungünstig. Transporter senkt diese
+		Aktivierungsenergie.
+	\item[Aktiver Transport] Transport entgegen Konzentrationsgradient
+		durch Kopplung an exergonen Prozess (zB ATP Hydrolyse)
+	\item[Rezeptoren] Kleine Ionen, organische Moleküle, Peptide, ... als
+		Liganden.
+\end{description}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=\linewidth]{img/hydropathie.png}
+	\caption{Hydropathie-Diagramm für Aufspürung alpha-helikaler Transmembranbereiche}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=\linewidth]{img/signaltransfer.png}
+	\caption{Signaltransfer}
 \end{figure}
 
 \end{document}
